@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+    body{font-size: 16px;font-family: 'Josefin Sans',sans-serif;}
+    .container{width:80%;margin:0;display: flex;flex-direction: row;height: 800px;}
+    .content{width: 60%;background-image:url('./images/bg-pattern-desktop.svg')}
+    .logo{margin-left: 13%;}
+    h1{color: hsl(0, 36%, 70%);letter-spacing: 15px;margin-top: 20%;margin-left: 30%;}
+    span{color: hsl(0, 6%, 24%);margin-left: 10px;}
+    p{color: hsl(0, 36%, 70%);margin-left: 30%;}
+    .email{outline: 1px solid hsl(0, 6%, 24%);border-radius: 40px;width: 40%;margin-left: 30%;height: 50px;margin-top: 20%;}
+    input{height: 90%;border: none;margin-left: 10px;padding:0;margin-top: 0px;width: 50%;font-family: 'Josefin Sans',sans-serif;}
+    .email .arrow{height: 100%;width: 50px;cursor: pointer;float: right;}
+    .error{margin-top: 10px;display: none;}
+    .message{color:hsl(0, 93%, 68%);font-weight: 500;display: none;}
+    .image img{width: 100%;height: 100%;}
+    @media screen and (max-width:800px) {
+      .container{display: flex;flex-direction: column;width: 100%;}
+      .content{width: 100%;}
+      .image{width: 100%;}
+      h1{margin-left: 30%;}
+      p{margin-left: 50px;}
+      .image img{width: 100%;height: 250px;margin-top: 10%;}
+      .container div:first-child{order: 1;}
+
+      
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <img src="./images/logo.svg" alt="base Apparel logo" class='logo'>
+  <div class='container'>
+    <div class='content'>
+      <h1> WE'RE <span><br>COMING <br>SOON </span></h1>
+      <p>Hello fellow shoppers! We're currently building our new <br> fashion store.Add your new email below to stay up-to-date with <br>announcements and our launch deals.</p>
+      <div class='email'>
+        <input onfocus="border()" type="email" placeholder="Email Address"><img class='error' src="./images/icon-error.svg" alt="error icon">
+        <img class='arrow' src="./images/chevron-circle-right-solid.svg" alt="arrow icon" onclick="check()"> 
+      </div>
+      <p class='message'>Please Provide a valid email</p>
+    </div>
+    <div class='image'>
+      <img src="./images/hero-desktop.jpg" alt="hero image">
+
+    </div>
+  </div>
+  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+  <script>
+    var i=document.querySelector('input')
+    function border(){
+      i.style.outline="none";
+    }
+    var d=document.querySelector(".email")
+    var p=document.querySelector(".message")
+    var mailExpression=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    function check(){
+      if(!(i.value.match(mailExpression))){
+        d.style.outline="1px solid hsl(0, 93%, 68%)";
+        p.style.display="block";
+      }
+    }
+   
+  </script>
+</body>
+</html>
